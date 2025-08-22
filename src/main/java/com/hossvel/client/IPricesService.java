@@ -18,6 +18,7 @@ import java.util.List;
 public interface IPricesService {
 
     @GET
+    @Path("/priceHistory" )
     Uni<List<Price>>  getHistoryPrice();
 
    // @GET
