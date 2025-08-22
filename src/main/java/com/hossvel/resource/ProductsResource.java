@@ -4,6 +4,7 @@ package com.hossvel.resource;
 import com.hossvel.client.IPricesService;
 import com.hossvel.model.Price;
 import com.hossvel.model.ProductPriceHistory;
+import com.hossvel.service.IProductService;
 import io.smallrye.common.annotation.Blocking;
 import io.smallrye.mutiny.Multi;
 import jakarta.inject.Inject;
@@ -24,13 +25,13 @@ import java.util.List;
 public class ProductsResource {
 
     @Inject
-    @RestClient
-    IPricesService iPricesService;
+
+    IProductService iProductService;
 
     @GET
     @Path( "/priceHistory" )
     public  Uni<List<Price>>  getHistoryPrice() {
-        return iPricesService.getHistoryPrice();
+        return iProductService.getHistoryPrice();
 
     }
 
